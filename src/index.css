@@ -20,16 +20,54 @@ ul {
   list-style-type: none;
 }
 
-button {
-  background: black;
-  color: aliceblue;
-  border-radius: 10px;
-  padding: 10px 50px;
-  margin: 40px 0;
-}
-
-.content {
+/* .content {
   margin: 0 60px;
   background: seagreen;
   border-radius: 10px;
 }
+
+.log-in {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(./useState/milky-way-2695569_1280\ \(1\).jpg);
+
+} */
+
+/* .form {
+  justify-content: center;
+  width: 400px;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 40px 0;
+
+}
+
+label {
+  color: aliceblue;
+} */
+
+/* input {
+  height: 20px;
+  width: 150px;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 14px;
+  margin-bottom: 5px;
+  background: transparent;
+  border: 2px solid white;
+
+} */
+
+/* #email {
+  margin-left: 47px;
+}
+
+button {
+  margin-top: 30px;
+  padding: 10px 40px;
+  border-radius: 10px;
+  background: transparent;
+  background: gainsboro;
+} */

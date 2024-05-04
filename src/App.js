@@ -19,7 +19,9 @@ import React from "react";
 // import Index from "./useState/useState-array";
 // import Index from "./useState/useState-example-2-1";
 // import Index from "./useState/useState-example-2-2";
-import Index from "./useState/useState-example-2-3";
+// import Index from "./useState/useState-example-2-3";
+// import Index from "./useState/useState-example-3";
+import Index from "./useEffect/useEffect-basics";
 
 function App() {
   return (
