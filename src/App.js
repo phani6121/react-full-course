@@ -24,7 +24,9 @@ import React from "react";
 // import Index from "./useEffect/useEffect-basics";
 // import Index from "./useEffect/useEffect-advanced";
 // import Index from "./useEffect/useEffect-example-1";
-import Index from "./useEffect/useEffect-example-2";
+// import Index from "./useEffect/useEffect-example-2";
+// import Index from "./useContext/useContextDemo";
+import Index from "./useContext/parentComponent";
 
 function App() {
   return (

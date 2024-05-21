@@ -20,6 +20,23 @@ ul {
   list-style-type: none;
 }
 
+.cocktail-data {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.cocktail-data li img {
+  width: 100%;
+}
+
+@media screen and (min-width: 769px) {
+  .cocktail-data {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
 /* .content {
   margin: 0 60px;
   background: seagreen;
