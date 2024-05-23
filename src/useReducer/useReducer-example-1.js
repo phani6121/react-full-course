@@ -45,6 +45,7 @@ const Index = () => {
             payload: id
         });
     };
+
     return (
         <div>
             <h1>Current users length : {state.length}</h1>

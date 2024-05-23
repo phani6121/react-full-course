@@ -26,5 +26,7 @@ export default Index;
 // useEffect first argument is call back function , second argument is dependency it is like array [], Third argument we are given dependencies in array single or multiple,
 
 // useEffect main use to bring data from the API's
+
 // useEffect will execute when component is mount and also when state will be changed again useEffect will be executed
+
 // useEffect will executed when we are change something only in that case we are given dependency

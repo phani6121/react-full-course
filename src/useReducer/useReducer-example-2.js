@@ -54,17 +54,27 @@ const reducer = (state, action) => {
 
 const Index = () => {
     const fetchUsersData = async (URL) => {
+
         dispatch({ type: "LOADING", payload: true });
+
         dispatch({ type: "ERROR", payload: { status: false, msg: "" } });
         try {
             const response = await fetch(URL);
+
             const data = await response.json();
+
             dispatch({ type: "UPDATE_USERS_DATA", payload: data });
+
             dispatch({ type: "LOADING", payload: false });
+
             dispatch({ type: "ERROR", payload: { status: false, msg: "" } });
+
         } catch (error) {
+
             console.log(error);
+
             dispatch({ type: "LOADING", payload: false });
+
             dispatch({
                 type: "ERROR",
                 payload: { status: true, msg: error.message },
