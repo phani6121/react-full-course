@@ -1,12 +1,15 @@
-import React, { useReducer, useEffect, useState } from 'react'
+import React, { useReducer, useEffect, useState } from 'react';
 
+// Define reducer function to manage state changes
 const reducer = (state, action) => {
+    // Update users data
     if (action.type === "UPDATE_USERS_DATA") {
         return {
             ...state,
             usersData: action.payload,
         };
     }
+    // Toggle loading state
     if (action.type === "LOADING") {
         return {
             ...state,
@@ -14,6 +17,7 @@ const reducer = (state, action) => {
         };
     }
 
+    // Delete a user by filtering usersData array
     if (action.type === "DELETE_USER") {
         const newUsers = state.usersData.filter(
             (eachUser) => eachUser.id !== action.payload
@@ -24,6 +28,7 @@ const reducer = (state, action) => {
         };
     }
 
+    // Toggle edit mode
     if (action.type === "ONCLICK_EDIT") {
         return {
             ...state,
@@ -31,6 +36,7 @@ const reducer = (state, action) => {
         };
     }
 
+    // Update a user's information
     if (action.type === "UPDATE_USER") {
         const newUsers = state.usersData.map((eachUser) => {
             if (eachUser.id === action.payload.id) {
@@ -52,9 +58,10 @@ const reducer = (state, action) => {
     return state;
 };
 
+// Main component
 const Index = () => {
+    // Fetch users data from an API
     const fetchUsersData = async (URL) => {
-
         dispatch({ type: "LOADING", payload: true });
 
         dispatch({ type: "ERROR", payload: { status: false, msg: "" } });
@@ -70,7 +77,6 @@ const Index = () => {
             dispatch({ type: "ERROR", payload: { status: false, msg: "" } });
 
         } catch (error) {
-
             console.log(error);
 
             dispatch({ type: "LOADING", payload: false });
@@ -82,10 +88,12 @@ const Index = () => {
         }
     };
 
+    // Fetch users data when component mounts
     useEffect(() => {
         fetchUsersData("https://jsonplaceholder.typicode.com/users");
     }, []);
 
+    // Initial state for the component
     const initialState = {
         usersData: [],
         isLoading: false,
@@ -93,12 +101,15 @@ const Index = () => {
         isEditing: { status: false, id: "", name: "", email: "" },
     };
 
+    // UseReducer hook to manage state
     const [state, dispatch] = useReducer(reducer, initialState);
 
+    // Handler function to delete a user
     const handleDelete = (id) => {
         dispatch({ type: "DELETE_USER", payload: id });
     };
 
+    // Handler function to update user data
     const updateData = (id, name, email) => {
         dispatch({
             type: "UPDATE_USER",
@@ -114,6 +125,7 @@ const Index = () => {
         });
     };
 
+    // Render loading state if data is being fetched
     if (state.isLoading) {
         return (
             <div>
@@ -122,6 +134,7 @@ const Index = () => {
         );
     }
 
+    // Render users information
     return (
         <div>
             <h2>Users Information</h2>
@@ -157,6 +170,7 @@ const Index = () => {
     );
 };
 
+// Component to edit user information
 const EditFormContainer = ({ id, comingTitle, comingEmail, updateData }) => {
     const [title, setTitle] = useState(comingTitle || "");
     const [email, setEmail] = useState(comingEmail || "");
@@ -186,4 +200,4 @@ const EditFormContainer = ({ id, comingTitle, comingEmail, updateData }) => {
     );
 };
 
-export default Index
+export default Index;
