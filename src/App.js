@@ -31,11 +31,16 @@ import React from "react";
 // import Index from "./useReducer/useReducer-example-2";
 // import Index from "./useRef/useRef-example-1";
 // import Index from "./useRef/useRef-example-2";
-import Index from "./useMemo/useMemo-example-1";
+// import Index from "./useMemo/useMemo-example-1";
+// import Index from "./useCallback/ParentComponent";
+import Index from "./customHooks/PageTitleOne";
+import Index2 from "./customHooks/PageTitleTwo";
+
 function App() {
   return (
     <div className="App">
       <Index />
+      <Index2 />
     </div>
   );
 };
