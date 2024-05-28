@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 
 const usePageTitle = (count) => {
+
     useEffect(() => {
+
         document.title = `count-${count}`
 
     }, [count]);

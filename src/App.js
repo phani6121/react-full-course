@@ -33,8 +33,13 @@ import React from "react";
 // import Index from "./useRef/useRef-example-2";
 // import Index from "./useMemo/useMemo-example-1";
 // import Index from "./useCallback/ParentComponent";
-import Index from "./customHooks/PageTitleOne";
-import Index2 from "./customHooks/PageTitleTwo";
+// import Index from "./customHooks/PageTitleOne";
+// import Index2 from "./customHooks/PageTitleTwo";
+// import Index from "./customHooks/FirstCounter";
+// import Index2 from "./customHooks/SecondCounter";
+import Index from "./customHooks/FirstApi";
+import Index2 from "./customHooks/SecondApi";
+
 
 function App() {
   return (
