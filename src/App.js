@@ -37,15 +37,39 @@ import React from "react";
 // import Index2 from "./customHooks/PageTitleTwo";
 // import Index from "./customHooks/FirstCounter";
 // import Index2 from "./customHooks/SecondCounter";
-import Index from "./customHooks/FirstApi";
-import Index2 from "./customHooks/SecondApi";
+// import Index from "./customHooks/FirstApi";
+// import Index2 from "./customHooks/SecondApi";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import { Routes, Route } from "react-router-dom"
+import Success from "./components/Success";
+import NotFound from "./components/NotFound";
+import Projects from "./components/Projects";
+import FeaturedProjects from "./components/FeaturedProjects";
+import NewProjects from "./components/NewProjects";
 
 
 function App() {
   return (
     <div className="App">
-      <Index />
-      <Index2 />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Success" element={<Success />} />
+        <Route path="/Projects" element={<Projects />} >
+          <Route index element={<FeaturedProjects />} />
+          {/* If we want direct feature Project we can wrote code above the line like we are not given path place to replace index  */}
+          <Route path="feature" element={<FeaturedProjects />} />
+          <Route path="new" element={<NewProjects />} />
+        </Route>
+        {/* Above those lines are nested routes we wrote like that  */}
+        <Route path="*" element={<NotFound />} />
+        {/* At here path is given "*" it means if not match any route to go to take that star path. */}
+      </Routes>
     </div>
   );
 };

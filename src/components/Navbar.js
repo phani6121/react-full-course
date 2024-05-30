@@ -1,0 +1,33 @@
+import React from 'react'
+import { NavLink } from "react-router-dom"
+// import { Link } from "react-router-dom"
+
+// At here there is difference between Link and NavLink when ever we are using Link we do not know where i am like pages Home,About But NavLink is different it is automatically add active class to given based on the we given pages like home about or contact 
+
+const Navbar = () => {
+
+
+    //This is like inline styling 
+    const navLinkStyle = ({ isActive }) => {
+        return {
+            textDecoration: isActive ? "none" : "underline",
+            fontWeight: isActive ? "bold" : "normal",
+            color: isActive ? "black" : "blue"
+        }
+    }
+    return (
+        <div>
+            <nav className='primary-nav'>
+                <NavLink style={navLinkStyle} to="/" >Home</NavLink>
+                <NavLink style={navLinkStyle} to="/About">About</NavLink>
+                <NavLink style={navLinkStyle} to="/Contact">Contact</NavLink>
+                <NavLink style={navLinkStyle} to="/Projects">Projects</NavLink>
+                {/* <Link to="/" >Home</Link>
+                <Link to="/About">About</Link>
+                <Link to="/Contact">Contact</Link> */}
+            </nav>
+        </div>
+    )
+}
+
+export default Navbar;
