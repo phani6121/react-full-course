@@ -41,7 +41,7 @@ import React from "react";
 // import Index2 from "./customHooks/SecondApi";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import About from "./components/About";
+// import About from "./components/About";
 import Contact from "./components/Contact";
 import { Routes, Route } from "react-router-dom"
 import Success from "./components/Success";
@@ -49,6 +49,16 @@ import NotFound from "./components/NotFound";
 import Projects from "./components/Projects";
 import FeaturedProjects from "./components/FeaturedProjects";
 import NewProjects from "./components/NewProjects";
+import Users from "./components/Users";
+import UserDetails from "./components/UserDetails";
+
+// Lazy loading means if we are run the large projects to load the pages to taken more time so we are use the lazy loading to reduce the loading time. 
+//Procedure to use the Lazy loading any project have many components are used so large content components are to import dynamic so in that time when ever we can click that component page in that time its loaded remaining time not loaded.
+// This facture works only that component have Export default components 
+
+//Dynamic import 
+//Lazy function 
+const LazyAbout = React.lazy(() => import("./components/About"))
 
 
 function App() {
@@ -57,7 +67,12 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/About" element={<About />} />
+        <Route path="/About" element={
+          <React.Suspense fallback="Loading...">
+            <LazyAbout />
+          </React.Suspense>
+        } />
+        {/* At here we are using lazy loading for more content component so it's takes time to load because we can use React.suspense with prop fallback. fallback is displayed what ever we give value   */}
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Success" element={<Success />} />
         <Route path="/Projects" element={<Projects />} >
@@ -66,6 +81,9 @@ function App() {
           <Route path="feature" element={<FeaturedProjects />} />
           <Route path="new" element={<NewProjects />} />
         </Route>
+        <Route path="/users" element={<Users />} />
+        <Route path="/users/:userId" element={<UserDetails />} />
+        {/* Dynamic routes are wrote like above line  */}
         {/* Above those lines are nested routes we wrote like that  */}
         <Route path="*" element={<NotFound />} />
         {/* At here path is given "*" it means if not match any route to go to take that star path. */}
