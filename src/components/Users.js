@@ -1,4 +1,4 @@
-// In this component users data displayed on the users
+// In this component users data displayed on the Users 
 
 import React from 'react'
 import userData from "./userData"

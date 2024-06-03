@@ -51,6 +51,7 @@ import FeaturedProjects from "./components/FeaturedProjects";
 import NewProjects from "./components/NewProjects";
 import Users from "./components/Users";
 import UserDetails from "./components/UserDetails";
+import { AuthProvider } from "./components/auth";
 
 // Lazy loading means if we are run the large projects to load the pages to taken more time so we are use the lazy loading to reduce the loading time. 
 //Procedure to use the Lazy loading any project have many components are used so large content components are to import dynamic so in that time when ever we can click that component page in that time its loaded remaining time not loaded.
@@ -63,7 +64,7 @@ const LazyAbout = React.lazy(() => import("./components/About"))
 
 function App() {
   return (
-    <div className="App">
+    <AuthProvider className="App">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -88,7 +89,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
         {/* At here path is given "*" it means if not match any route to go to take that star path. */}
       </Routes>
-    </div>
+    </AuthProvider>
   );
 };
 
