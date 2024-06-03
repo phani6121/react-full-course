@@ -52,6 +52,9 @@ import NewProjects from "./components/NewProjects";
 import Users from "./components/Users";
 import UserDetails from "./components/UserDetails";
 import { AuthProvider } from "./components/auth";
+import Login from "./components/Login"
+import Logout from "./components/Logout";
+import PrivateRoute from "./components/PrivateRoute";
 
 // Lazy loading means if we are run the large projects to load the pages to taken more time so we are use the lazy loading to reduce the loading time. 
 //Procedure to use the Lazy loading any project have many components are used so large content components are to import dynamic so in that time when ever we can click that component page in that time its loaded remaining time not loaded.
@@ -82,10 +85,19 @@ function App() {
           <Route path="feature" element={<FeaturedProjects />} />
           <Route path="new" element={<NewProjects />} />
         </Route>
-        <Route path="/users" element={<Users />} />
+        <Route path="/users" element={
+          <PrivateRoute>
+            <Users />
+          </PrivateRoute>
+        } />
         <Route path="/users/:userId" element={<UserDetails />} />
         {/* Dynamic routes are wrote like above line  */}
         {/* Above those lines are nested routes we wrote like that  */}
+
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/logout" element={<Logout />} />
+
         <Route path="*" element={<NotFound />} />
         {/* At here path is given "*" it means if not match any route to go to take that star path. */}
       </Routes>

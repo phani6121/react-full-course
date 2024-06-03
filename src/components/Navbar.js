@@ -1,4 +1,5 @@
 import React from 'react'
+import { useAuth } from './auth'
 import { NavLink } from "react-router-dom"
 // import { Link } from "react-router-dom"
 
@@ -6,6 +7,7 @@ import { NavLink } from "react-router-dom"
 
 const Navbar = () => {
 
+    const { user, logout } = useAuth();
 
     //This is like inline styling 
     const navLinkStyle = ({ isActive }) => {
@@ -26,6 +28,11 @@ const Navbar = () => {
                 {/* <Link to="/" >Home</Link>
                 <Link to="/About">About</Link>
                 <Link to="/Contact">Contact</Link> */}
+                {user ? (
+                    <NavLink style={navLinkStyle} to="/logout" onClick={logout}>Logout</NavLink>
+                ) : (
+                    <NavLink style={navLinkStyle} to="/login">Login</NavLink>
+                )}
             </nav>
         </div>
     )
